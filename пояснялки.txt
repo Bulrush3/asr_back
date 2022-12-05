@@ -1,0 +1,1 @@
+query string - строка запроса/Request URL (её хорошо видно в доке FastAPI)
