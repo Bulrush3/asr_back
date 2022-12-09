@@ -14,7 +14,7 @@ from ..database import get_session
 from ..models.auth import User, Token, UserCreate
 from ..settings import settings
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl='.auth/sign-in')
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl='/auth/sign-in')
 
 def get_current_user(token: str = Depends(oauth2_scheme)) -> User:
     return AuthService.validate_token(token)
