@@ -12,6 +12,7 @@ from ..services.operations import OperationService
 
 router = APIRouter(
     prefix='/operations',
+    tags=['operations'],
 )
 
 @router.get('/', response_model=List[Operation])

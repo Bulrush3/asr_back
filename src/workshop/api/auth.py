@@ -7,6 +7,7 @@ from ..services.auth import AuthService, get_current_user
 
 router = APIRouter(
     prefix='/auth',
+    tags=['auth'],
 )
 
 
