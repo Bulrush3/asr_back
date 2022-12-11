@@ -14,6 +14,7 @@ class OperationBase(BaseModel):
     kind: OperationKind
     amount: Decimal
     description: Optional[str]
+    reviews: Optional[str]
 
 class Operation(OperationBase):
     id: int

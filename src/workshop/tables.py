@@ -22,4 +22,5 @@ class Operation(Base):
     kind = sa.Column(sa.String)
     amount = sa.Column(sa.Numeric(10, 2))
     description = sa.Column(sa.String, nullable=True)
+    reviews = sa.Column(sa.String, nullable=True)
 
