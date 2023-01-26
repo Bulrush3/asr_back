@@ -1,5 +1,7 @@
 import sqlalchemy as sa
+from sqlalchemy import Text
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.dialects.postgresql import ARRAY
 
 
 Base = declarative_base()
@@ -21,6 +23,8 @@ class Operation(Base):
     date = sa.Column(sa.Date)
     kind = sa.Column(sa.String)
     amount = sa.Column(sa.Numeric(10, 2))
-    description = sa.Column(sa.String, nullable=True)
-    reviews = sa.Column(sa.String, nullable=True)
-
+    title = sa.Column(sa.String, nullable=False)
+    minTitle = sa.Column(sa.String, nullable=False)
+    backImage = sa.Column(sa.String, nullable=True)
+    logoImage = sa.Column(sa.String, nullable=True)
+    tags = sa.Column(ARRAY(Text), nullable=True)

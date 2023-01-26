@@ -27,7 +27,7 @@ def get_operations(
 def create_operation(
         operation_data: OperationCreate,
         user: User = Depends(get_current_user),
-        service: OperationService = Depends()
+        service: OperationService = Depends(),
 ):
         print(user.id, operation_data)
         return service.create(user_id=user.id, operation_data=operation_data)

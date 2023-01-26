@@ -3,6 +3,7 @@ uvicorn~=0.20.0
 pydantic~=1.10.2
 python-dotenv
 sqlalchemy
+sqlalchemy_utils
 python-jose[cryptography]
 passlib[bcrypt]~=1.7.4
 python-multipart

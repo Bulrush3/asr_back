@@ -1,7 +1,7 @@
 from datetime import date
 from decimal import Decimal
 from enum import Enum
-from typing import Optional
+from typing import Optional, List
 
 from pydantic import BaseModel
 
@@ -13,8 +13,11 @@ class OperationBase(BaseModel):
     date: date
     kind: OperationKind
     amount: Decimal
-    description: Optional[str]
-    reviews: Optional[str]
+    title: str
+    minTitle: str
+    backImage: str
+    logoImage: str
+    tags: List[str]
 
 class Operation(OperationBase):
     id: int
