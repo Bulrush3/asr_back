@@ -1,18 +1,16 @@
 from datetime import date
-from decimal import Decimal
 from enum import Enum
-from typing import Optional, List
+from typing import List
 
 from pydantic import BaseModel
 
 class OperationKind(str, Enum):
-    INCOME = 'income'
-    OUTCOME = 'outcome'
+    INCOME = 'game'
+    OUTCOME = 'not game'
 
 class OperationBase(BaseModel):
     date: date
     kind: OperationKind
-    amount: Decimal
     title: str
     minTitle: str
     backImage: str

@@ -22,7 +22,6 @@ class Operation(Base):
     user_id = sa.Column(sa.Integer, sa.ForeignKey('users.id'))
     date = sa.Column(sa.Date)
     kind = sa.Column(sa.String)
-    amount = sa.Column(sa.Numeric(10, 2))
     title = sa.Column(sa.String, nullable=False)
     minTitle = sa.Column(sa.String, nullable=False)
     backImage = sa.Column(sa.String, nullable=True)
