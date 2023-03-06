@@ -21,9 +21,18 @@ class Operation(Base):
     id = sa.Column(sa.Integer, primary_key=True)
     user_id = sa.Column(sa.Integer, sa.ForeignKey('users.id'))
     date = sa.Column(sa.Date)
-    kind = sa.Column(sa.String)
     title = sa.Column(sa.String, nullable=False)
     minTitle = sa.Column(sa.String, nullable=False)
     backImage = sa.Column(sa.String, nullable=True)
     logoImage = sa.Column(sa.String, nullable=True)
+    tags = sa.Column(ARRAY(Text), nullable=True)
+    category = sa.Column(sa.String, nullable=True)
+
+
+class Nearest(Base):
+    __tablename__ = 'nearests'
+
+    id = sa.Column(sa.Integer, primary_key=True)
+    user_id = sa.Column(sa.Integer, sa.ForeignKey('users.id'))
+    date = sa.Column(sa.Integer, nullable=False)
     tags = sa.Column(ARRAY(Text), nullable=True)

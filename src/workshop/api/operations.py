@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import List
 
 from fastapi import APIRouter
 from fastapi import Depends
@@ -6,7 +6,7 @@ from fastapi import Response
 from fastapi import status
 
 from ..models.auth import User
-from ..models.operations import Operation, OperationKind, OperationCreate, OperationUpdate
+from ..models.operations import Operation, OperationCreate, OperationUpdate
 from ..services.auth import get_current_user
 from ..services.operations import OperationService
 
@@ -17,11 +17,10 @@ router = APIRouter(
 
 @router.get('/', response_model=List[Operation])
 def get_operations(
-        kind: Optional[OperationKind] = None,
         user: User = Depends(get_current_user),
         service: OperationService = Depends(),
 ):
-        return service.get_list(user_id=user.id, kind=kind)
+        return service.get_list(user_id=user.id)
 
 @router.post('/', response_model=Operation)
 def create_operation(

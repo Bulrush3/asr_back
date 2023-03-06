@@ -1,11 +1,11 @@
-from typing import List, Optional
+from typing import List
 
 from sqlalchemy.orm import Session
 from fastapi import Depends, HTTPException, status
 
 from .. import tables
 from ..database import get_session
-from ..models.operations import OperationKind, OperationCreate, OperationUpdate
+from ..models.operations import OperationCreate, OperationUpdate
 
 
 class OperationService:
@@ -26,13 +26,11 @@ class OperationService:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
         return operation
 
-    def get_list(self, user_id: int, kind: Optional[OperationKind] = None) -> List[tables.Operation]:
+    def get_list(self, user_id: int) -> List[tables.Operation]:
         query = (
             self.session
             .query(tables.Operation)
             .filter_by(user_id=user_id))
-        if kind:
-            query = query.filter_by(kind=kind)
         operations = query.all()
         return operations
 
