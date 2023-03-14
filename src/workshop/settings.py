@@ -2,16 +2,16 @@ from pydantic import BaseSettings
 
 
 class Settings(BaseSettings):
-    server_host: str = '127.0.0.1'
+    server_host: str = '127.0.0.1' # тут надо написать 0.0.0.0
     server_port: int = 8000
     database_url: str = 'postgresql://postgres:qwerty1@localhost/test_db'
 
-    jwt_secret: str
+    jwt_secret: str = "supersecret"
     jwt_algorithm: str = 'HS256'
     jwt_expiration: int = 3600
 
 
 settings = Settings(
-    _env_file="../.env",
+    _env_file=".env",
     _env_file_encoding='utf-8',
 )
